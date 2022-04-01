@@ -1,19 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import useProduct from '../../hooks/useProduct';
 import { addToDb, getStoredCart } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Product from '../product/Product';
 import './shop.css'
 
 const Shop = () => {
-    const [products,setProducts]=useState([])
+    const [products,setProducts]=useProduct([])
 
     const[cart,setCart]=useState([])
-
-    useEffect(()=>{
-        fetch('products.json')
-        .then(res=>res.json())
-        .then(data=>setProducts (data))
-    },[])
 
     useEffect(()=>{
         const storedCart=getStoredCart()
@@ -31,7 +27,7 @@ const Shop = () => {
     },[products])
 
     const handleClick=(selecteProduct)=>{
-        // const{id}=product
+    //    const{id}=product
         let newCart=[];
         const exists=cart.find(product=>product.id===selecteProduct.id)
         if(!exists){
@@ -61,7 +57,11 @@ const Shop = () => {
        }
          </div>
          <div className="cart-container">
-           <Cart Cart={cart}></Cart>
+           <Cart Cart={cart}>
+           <Link to='/orders'>
+               <button>Review Order </button>
+           </Link>
+           </Cart>
         </div> 
         </div>
     );
