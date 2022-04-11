@@ -7,7 +7,7 @@ import Product from '../product/Product';
 import './shop.css'
 
 const Shop = () => {
-    const [products,setProducts]=useProduct([])
+    const [products]=useProduct([])
 
     const[cart,setCart]=useState([])
 
