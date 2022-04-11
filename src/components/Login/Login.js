@@ -35,7 +35,7 @@ const Login = () => {
   };
 
   return (
-    <div className="form-container">
+    <div className="form-container p-3">
       <div>
         <h2 className="form-title">This is log in</h2>
         <form onSubmit={handleSignInUser}>

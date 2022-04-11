@@ -28,7 +28,7 @@ const Shipment = () => {
   };
 
   return (
-    <div className="form-container p-2">
+    <div className="form-container p-3">
       <div>
         <h2 className="form-title">Shipping Information</h2>
         <form onSubmit={handleCreateUser} action="">
